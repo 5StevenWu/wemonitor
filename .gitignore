@@ -1,5 +1,5 @@
 #wechat 配置
-.zqconfig
+*.zqconfig
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
