@@ -1,5 +1,7 @@
-#wechat 配置
+﻿#wechat 配置
 *.zqconfig
+#idea配置
+.idea/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
