@@ -8,12 +8,14 @@ import sys
 import urllib
 import urllib.request
 import json
+from read_config import loadConf
 
 try:
     title = sys.argv[2]
     content = sys.argv[3]
 except IndexError as e:
-    pass
+    title = '111'
+    content = '222'
 
 
 class Token(object):
@@ -31,12 +33,15 @@ class Token(object):
 
 
 ''' 企业微信的总id 微信报警应用的Secret'''
-corpid = 'ww7913691022652084'
-corpsecret = 'eZDp9XnvNJOsHFaBMdyZIEKoHeR6gBEv3HFm-iqhjaw'
-
+# corpid = '企业id号'
+# corpsecret = '密钥'
+corpid = loadConf()[0]
+corpsecret = loadConf()[1]
+print(corpid,corpsecret)
 
 def send_msg(title, conntent):
     s_token = Token(corpid=corpid, corpsecret=corpsecret).get_token()
+    print('token创建')
     send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={0}'.format(s_token)
     # toparty:部门ID   agentid:小程序应用id
     send_value = {
@@ -57,5 +62,5 @@ def send_msg(title, conntent):
 
 if __name__ == '__main__':
     # pass
-    send_msg(title, content)
-    # send_msg('110report测试', '报警sendSMS2--TEST--from--wechat')
+    # send_msg(title, content)
+    send_msg('110report测试', '报警sendSMS2--TEST--from--wechat')
