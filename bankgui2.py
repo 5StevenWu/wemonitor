@@ -6,8 +6,7 @@ import win32gui, os, time
 
 
 def demo_top_windows():
-    # 文件句柄警戒值
-    secLine = 90
+    secLine = 90  # 文件句柄警戒值
     hWndList = []
     win32gui.EnumWindows(lambda hWnd, param: param.append(hWnd), hWndList)
     print(hWndList)

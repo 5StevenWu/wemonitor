@@ -14,8 +14,8 @@ try:
     title = sys.argv[2]
     content = sys.argv[3]
 except IndexError as e:
-    title = '111'
-    content = '222'
+    title = 'without_title'
+    content = 'without_content'
 
 
 class Token(object):
@@ -37,11 +37,13 @@ class Token(object):
 # corpsecret = '密钥'
 corpid = loadConf()[0]
 corpsecret = loadConf()[1]
-print(corpid,corpsecret)
+
+
+# print(corpid,corpsecret)
 
 def send_msg(title, conntent):
     s_token = Token(corpid=corpid, corpsecret=corpsecret).get_token()
-    print('token创建')
+    # print('token创建')
     send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={0}'.format(s_token)
     # toparty:部门ID   agentid:小程序应用id
     send_value = {
@@ -57,7 +59,7 @@ def send_msg(title, conntent):
     send_request = urllib.request.Request(send_url, send_data)
     reponse = urllib.request.urlopen(send_request)
     msg = reponse.read()
-    print(msg)
+    print(msg.decode('utf8'))
 
 
 if __name__ == '__main__':
