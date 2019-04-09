@@ -6,6 +6,8 @@ import json
 def loadConf():
     with open("wechatConf.zqconfig", 'r') as wechatConf:
         settings = json.load(wechatConf)
+
+        print(settings)
         corpid = settings['corpid']
         corpsecret = settings['corpsecret']
         return corpid, corpsecret
