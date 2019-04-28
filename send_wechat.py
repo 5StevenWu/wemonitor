@@ -3,7 +3,7 @@
 # Version20190324
 # Author:xp
 # blog_url:http://blog.csdn.net/wuxingpu5/
-'''pip3 install urllib'''
+"""pip3 install urllib"""
 import sys
 import urllib
 import urllib.request
