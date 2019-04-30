@@ -9,7 +9,7 @@ print(base_dir)
 
 
 def loadConf():
-    with open("wechatConf.zqconfig", 'r') as wechatConf:
+    with open("../conf/wechatConf.zqconfig", 'r') as wechatConf:
         settings = json.load(wechatConf)
 
         print(settings)
