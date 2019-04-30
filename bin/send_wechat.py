@@ -8,7 +8,7 @@ import sys
 import urllib
 import urllib.request
 import json
-from read_config import loadConf
+from libs.read_config import loadConf
 
 try:
     title = sys.argv[2]

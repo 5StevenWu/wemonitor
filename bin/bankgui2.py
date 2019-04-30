@@ -13,7 +13,7 @@ def demo_top_windows():
     print('total window num: ', len(hWndList))
     totalwind = len(hWndList)
     if totalwind > secLine:
-        from send_wechat import send_msg
+        from bin.send_wechat import send_msg
         send_msg('民生银行机器提示:', '文件句柄数大于' + str(secLine) + ',请确认--From电信通')
         print('句柄过多')
 
@@ -25,7 +25,7 @@ def portNum():
     # print(comandRes)
     portNumSum = int(comandRes.read())
     if portNumSum > portLine:
-        from send_wechat import send_msg
+        from bin.send_wechat import send_msg
         send_msg('当前8080端口总计:' + str(portNumSum) + '个,', '无', )
     print('当前8080端口总计:', portNumSum, '个')
 

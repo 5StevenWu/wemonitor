@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+
+import os
 import json
+
+base_dir = os.path.dirname(os.path.dirname(__file__))
+print(base_dir)
 
 
 def loadConf():
