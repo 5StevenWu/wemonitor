@@ -12,7 +12,7 @@ def loadConf():
         corpsecret = settings['corpsecret']
         return corpid, corpsecret
 
-
-if __name__ == '__main__':
-    test = loadConf()
-    print(test[0], test[1])
+#
+# if __name__ == '__main__':
+#     test = loadConf()
+#     print(test[0], test[1])
