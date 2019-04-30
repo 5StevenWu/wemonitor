@@ -4,6 +4,9 @@
 # Version20190324
 import win32gui, os, time
 
+base_dir = os.path.dirname(os.path.dirname(__file__))
+print(base_dir)
+
 
 def demo_top_windows():
     secLine = 90  # 文件句柄警戒值
