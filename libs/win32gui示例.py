@@ -26,7 +26,7 @@ def show_window_attr(hWnd):
 
         # 中文系统默认title是gb2312的编码
     title = win32gui.GetWindowText(hWnd)
-   # title = gbk2utf8(title)
+    # title = gbk2utf8(title)
     clsname = win32gui.GetClassName(hWnd)
 
     print
