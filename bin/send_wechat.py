@@ -4,11 +4,15 @@
 # Author:xp
 # blog_url:http://blog.csdn.net/wuxingpu5/
 """pip3 install urllib"""
+import os
 import sys
 import urllib
 import urllib.request
 import json
 from libs.read_config import loadConf
+
+base_dir = os.path.dirname(os.path.dirname(__file__))
+print(base_dir)
 
 try:
     title = sys.argv[2]
