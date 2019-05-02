@@ -5,8 +5,9 @@
 import win32gui, os, time
 
 base_dir = os.path.dirname(os.path.dirname(__file__))
-print(base_dir)
 
+
+# print(base_dir)
 
 def demo_top_windows():
     secLine = 90  # 文件句柄警戒值
@@ -16,7 +17,7 @@ def demo_top_windows():
     print('total window num: ', len(hWndList))
     totalwind = len(hWndList)
     if totalwind > secLine:
-        from bin.send_wechat import send_msg
+        from bin.send2wechat import send_msg
         send_msg('民生银行机器提示:', '文件句柄数大于' + str(secLine) + ',请确认--From电信通')
         print('句柄过多')
 
@@ -28,13 +29,12 @@ def portNum():
     # print(comandRes)
     portNumSum = int(comandRes.read())
     if portNumSum > portLine:
-        from bin.send_wechat import send_msg
-        send_msg('当前8080端口总计:' + str(portNumSum) + '个,', '无', )
+        from bin.send2wechat import send_msg
+        send_msg('当前8080端口总计:' + str(portNumSum) + '个,', '请确认--From电信通', )
     print('当前8080端口总计:', portNumSum, '个')
 
 
 while True:
-    if __name__ == '__main__':
-        demo_top_windows()
-        portNum()
+    demo_top_windows()
+    portNum()
     time.sleep(180)
