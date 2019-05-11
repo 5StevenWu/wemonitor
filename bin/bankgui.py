@@ -2,9 +2,10 @@
 # -*- coding:utf-8 -*-
 
 # Version20190324
-import win32gui, os, time
-
+import win32gui, os, time,sys
 base_dir = os.path.dirname(os.path.dirname(__file__))
+sys.path.append(base_dir)
+# base_dir = os.path.dirname(os.path.dirname(__file__))
 
 
 # print(base_dir)
@@ -12,7 +13,7 @@ base_dir = os.path.dirname(os.path.dirname(__file__))
 def demo_top_windows():
     secLine = 90  # 文件句柄警戒值
     hWndList = []
-    win32gui.EnumWindows(lambda hWnd, param: param.append(hWnd), hWndList)
+    win32gui.EnumWindows(lambda hWnd, param: param.append(hWnd), hWndList)#获取所有文件句柄
     print(hWndList)
     print('total window num: ', len(hWndList))
     totalwind = len(hWndList)
@@ -37,4 +38,4 @@ def portNum():
 while True:
     demo_top_windows()
     portNum()
-    time.sleep(180)
+    time.sleep(1800)
