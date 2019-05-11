@@ -9,12 +9,13 @@ import sys
 import urllib
 import urllib.request
 import json
-from libs.read_config import loadConf
 
 base_dir = os.path.dirname(os.path.dirname(__file__))
-print(base_dir)
+sys.path.append(base_dir)
+from libs.read_config import loadConf
 
 try:
+    # 脚本执行传入的参数  例如:来自zbx的shell脚本调用
     title = sys.argv[2]
     content = sys.argv[3]
 except IndexError as e:
@@ -24,10 +25,19 @@ except IndexError as e:
 
 class Token(object):
     def __init__(self, corpid, corpsecret):
+        '''
+
+        :param corpid:  微信id
+        :param corpsecret: 微信密码
+        '''
         self.baseurl = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={0}&corpsecret={1}'.format(corpid,
                                                                                                        corpsecret)
 
     def get_token(self):
+        '''
+        请求微信api
+        :return: 返回token
+        '''
         token_file = urllib.request.urlopen(self.baseurl)
         token_data = token_file.read().decode('utf-8')
         token_json = json.loads(token_data)
