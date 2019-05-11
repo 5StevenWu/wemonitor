@@ -15,7 +15,7 @@ sys.path.append(base_dir)
 from libs.read_config import loadConf
 
 try:
-    # 脚本执行传入的参数  例如:来自zbx的shell脚本调用
+    # 脚本执行传入的参数  例如:来自zbx的shell脚本调用  传入第二个参数为报警标题 第三个为报警内容
     title = sys.argv[2]
     content = sys.argv[3]
 except IndexError as e:
