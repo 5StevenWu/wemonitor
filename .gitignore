@@ -1,7 +1,8 @@
-﻿#wechat 配置
-*.zqconfig
-#idea配置
+#idea
 .idea/*
+
+#视频
+*.mp4
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -25,6 +26,7 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -43,6 +45,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
@@ -77,6 +80,10 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# IPython
+profile_default/
+ipython_config.py
+
 # pyenv
 .python-version
 
@@ -107,3 +114,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
