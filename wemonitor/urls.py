@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from sendwechat import views
+
+# from sendmail import views
+# from sendsms import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^index/', views.sendWechat.as_view()),
+    # url(r'^sendall/', views.sendWechat.as_view()),
+    url(r'^sendwechat/', views.sendWechat.as_view()),
+    # url(r'^sendmail/', views.sendWechat.as_view()),
+    # url(r'^sendsms/', views.sendWechat.as_view()),
 ]
