@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sendwechat.apps.SendwechatConfig',
+    'sendmail.apps.SendmailConfig',
+    'sendsms.apps.SendsmsConfig',
 ]
 
 MIDDLEWARE = [
