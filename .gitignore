@@ -1,9 +1,10 @@
-#idea
+#idea编辑器
 .idea/*
 
 #视频
 *.mp4
-
+#配置
+settings.py
 #微信密码忽略文件
 *.zqconfig
 
