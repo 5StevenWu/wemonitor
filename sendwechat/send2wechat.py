@@ -12,7 +12,7 @@ import json
 
 base_dir = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(base_dir)
-from libs.read_config import loadConf
+from sendwechat.read_config import loadConf
 
 try:
     # 脚本执行传入的参数  例如:来自zbx的shell脚本调用  传入第二个参数为报警标题 第三个为报警内容
@@ -74,6 +74,7 @@ def send_msg(title, conntent):
     reponse = urllib.request.urlopen(send_request)
     msg = reponse.read()
     print(msg.decode('utf8'))
+    return msg.decode('utf8')
 
 
 if __name__ == '__main__':
