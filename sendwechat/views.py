@@ -6,6 +6,17 @@ from rest_framework.response import Response
 
 # Create your views here.
 
+class sendWechat(APIView):
+
+    def get(self, request):
+        title = request.GET.get('title')
+        content = request.GET.get('content')
+        if title:
+            print(title, content)
+            ret = send_msg(title, content)
+            return HttpResponse(str(ret))
+        return HttpResponse('欢迎使用报警平台')
+
 
 class sendWechat(APIView):
 
