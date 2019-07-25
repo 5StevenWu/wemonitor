@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'sendwechat.apps.SendwechatConfig',
     'sendmail.apps.SendmailConfig',
     'sendsms.apps.SendsmsConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
