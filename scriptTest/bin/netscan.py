@@ -1,7 +1,8 @@
 #!/usr/bin/env python2
 # -*- conding: UTF-8 -*-
 import os
-import commands
+
+import subprocess
 import re
 
 while 1:
@@ -13,18 +14,19 @@ while 1:
         \n\
         \n                Please: "
     while 1:
-        n_net = raw_input(prompt)
+        n_net = input(prompt)
         #    n_net_match = re.match('(10|172|192).\d{1,3}.\d{1,3}.0/\d{1,2}', n_net)
         n_net_match = re.match('\d{1,3}.\d{1,3}.\d{1,3}.0/\d{1,2}', n_net)
         if n_net == "":
-            print
-            "           Format error, e.g. 172.28.14.0/24"
+            print("           Format error, e.g. 172.28.14.0/24")
         elif n_net_match == None:
-            print
-            "           Format error, e.g. 172.28.14.0/24"
+            print("           Format error, e.g. 172.28.14.0/24")
+
         else:
-            if n_net[:6] == '10.6.2':
-                w_net = '117.121.18.0/24'
+            if n_net[:4] == '10.2':
+                w_net = '219.234.89.244/25'
+            elif n_net[:5] == '172.21':
+                w_net = '39.155.198.170/29'
             elif n_net[:6] == '10.2.1':
                 w_net = '211.154.165.0/24'
             elif n_net[:6] == '10.2.2':
@@ -134,32 +136,32 @@ while 1:
                 continue
             else:
                 w_no_pair_list.append(www)
-        print
-        "\n============ Pair IP ============="
+        print("\n============ Pair IP =============")
+
         for pip in pair_list:
-            print
-            pip
-        print
-        "                                        Summary: %s" % len(pair_list)
-        print
-        "\n=========== No Pair NIP ==========="
+            print(pip)
+
+        print("                                        Summary: %s" % len(pair_list))
+
+        print("\n=========== No Pair NIP ===========")
+
         for nnpip in n_no_pair_list:
-            print
-            nnpip
-        print
-        "                  Summary: %s" % len(n_no_pair_list)
-        print
-        "\n=========== No Pair WIP ==========="
+            print(nnpip)
+
+        print("                  Summary: %s" % len(n_no_pair_list))
+
+        print("\n=========== No Pair WIP ===========")
+
         for wnpip in w_no_pair_list:
-            print
-            wnpip
-        print
-        "                  Summary: %s" % len(w_no_pair_list)
+            print(wnpip)
+
+        print("                  Summary: %s" % len(w_no_pair_list))
+
         # os.system("pause")
     else:
         for final_n in n_available_list:
-            print
-            final_n
-        print
-        "                  Summary: %s" % len(n_available_list)
+            print(final_n)
+
+        print("                  Summary: %s" % len(n_available_list))
+
         # os.system("pause")

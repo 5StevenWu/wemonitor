@@ -9,13 +9,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from PIL import ImageGrab
 from send2alimail import sendmail
 
-
+#============================打开浏览器开发者模式===========================
 options = webdriver.ChromeOptions()
 options.add_argument("--auto-open-devtools-for-tabs")
 # options.add_experimental_option('excludeSwitches', ['enable-automation'])
 
 
-driver = webdriver.Chrome(executable_path=r'F:\全栈21期\day104爬虫\day04\chromedriver.exe',chrome_options=options)
+driver = webdriver.Chrome(executable_path=r'..\libs\chromedriver.exe',chrome_options=options)
 # driver = webdriver.Chrome(executable_path=r'F:\全栈21期\day104爬虫\chromedriver_win3276\chromedriver.exe',)
 driver.get('http://www.qq.com')
 sleep(1)
@@ -37,11 +37,12 @@ def run():
         # builder.key_down(Keys.F5).perform()
         driver.refresh()
         # driver.save_screenshot('shortcut.png')
+        #=========================截图========================
         im = ImageGrab.grab()
         im.save(r'./shortcut.png')
 
 
-        # 发送邮件接口
+        # ===============发送邮件接口===========================
         # sendmail()
 
 

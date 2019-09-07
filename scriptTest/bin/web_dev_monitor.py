@@ -26,7 +26,7 @@ builder = ActionChains(driver)
 # builder.send_keys('test__').perform()
 sleep(1)
 # builder = ActionChains(driver)
-builder.key_down(Keys.CONTROL).send_keys(']').perform()
+builder.key_down(Keys.F12).perform()
 
 # builder.key_down(Keys.SHIFT).send_keys('a').perform()
 # builder.key_down(Keys.CONTROL).key_down(Keys.SHIFT).key_down('i').key_up(Keys.CONTROL).key_up(Keys.SHIFT).perform()
