@@ -61,9 +61,9 @@ def send_msg(title, conntent):
     send_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={0}'.format(s_token)
     # toparty:部门ID   agentid:小程序应用id
     send_value = {
-        "toparty": "12",
+        "toparty": "16",
         "msgtype": "text",
-        "agentid": "1000002",
+        "agentid": "1000011",
         "text": {
             "content": str(title + ' // ' + conntent),
         },
@@ -73,7 +73,7 @@ def send_msg(title, conntent):
     send_request = urllib.request.Request(send_url, send_data)
     reponse = urllib.request.urlopen(send_request)
     msg = reponse.read()
-    print(msg.decode('utf8'))
+    print('发送结果',msg.decode('utf8'))
     return msg.decode('utf8')
 
 
