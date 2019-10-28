@@ -41,7 +41,7 @@ class Token(object):
         token_file = urllib.request.urlopen(self.baseurl)
         token_data = token_file.read().decode('utf-8')
         token_json = json.loads(token_data)
-        # print(token_json)
+        print(token_json)
         token = token_json['access_token']
         return token
 
