@@ -48,11 +48,11 @@ def sendmail():
 
     # 发送邮件
     try:
-        # client = smtplib.SMTP()
+        client = smtplib.SMTP()
         # python 2.7以上版本，若需要使用SSL，可以这样创建client
-        client = smtplib.SMTP_SSL()
+        #client = smtplib.SMTP_SSL()
         # SMTP普通端口为25或80
-        client.connect('smtp.mxhichina.com', 465)
+        client.connect('smtp.mxhichina.com', 25)
         # 开启DEBUG模式
         client.set_debuglevel(0)
         client.login(username, password)
