@@ -8,21 +8,26 @@ from email.mime.base import MIMEBase
 from email.mime.application import MIMEApplication
 from email.header import Header
 
+from read_config import loadConf
+
+
+
+
 def sendmail():
     # 发件人地址，通过控制台创建的发件人地址
     username = 'no-reply@imsa.org.cn'
     # 发件人密码，通过控制台创建的发件人密码
-    password = 'xxxx'
+    password = loadConf()
     # 自定义的回复地址
     # replyto = '***'
     # 收件人地址或是地址列表，支持多个收件人，最多30个
     # rcptto = ['***', '***']
-    rcptto = ['wuxp@imsa.org.cn',]
+    rcptto = ['wuxp@imsa.org.cn','hsingpu@Foxmail.com']
     # 构建alternative结构
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = Header('邮件Tips').encode('utf-8')
+    msg['Subject'] = Header('邮件Tips/报警测试').encode('utf-8')
     msg['From'] = '%s <%s>' % (Header('no-reply').encode('utf-8'), username)
-    msg['To'] = rcptto
+    msg['To'] = str(rcptto)
     # msg['Reply-to'] = replyto
     msg['Message-id'] = email.utils.make_msgid()
     msg['Date'] = email.utils.formatdate()
@@ -30,14 +35,14 @@ def sendmail():
     textplain = MIMEText('自定义TEXT纯文本部分', _subtype='plain', _charset='UTF-8')
     msg.attach(textplain)
     # 构建alternative的text/html部分
-    texthtml = MIMEText('自定义HTML超文本部分', _subtype='html', _charset='UTF-8')
+    texthtml = MIMEText('棋院官网首页已变更', _subtype='html', _charset='UTF-8')
     msg.attach(texthtml)
 
     # 附件类型
     # xlsx 类型的附件
-    xlsxpart = MIMEApplication(open('shortcut.png', 'rb').read())
-    xlsxpart.add_header('Content-Disposition', 'attachment', filename=Header("shortcut.png", "utf-8").encode())
-    msg.attach(xlsxpart)
+    # xlsxpart = MIMEApplication(open('shortcut.png', 'rb').read())
+    # xlsxpart.add_header('Content-Disposition', 'attachment', filename=Header("shortcut.png", "utf-8").encode())
+    # msg.attach(xlsxpart)
 
 
 
@@ -71,3 +76,7 @@ def sendmail():
         print('邮件发送失败, ', e.message)
     except Exception as  e:
         print('邮件发送异常, ', str(e))
+
+
+if __name__ == '__main__':
+    sendmail()
