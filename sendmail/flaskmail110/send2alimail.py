@@ -22,7 +22,7 @@ def sendmail():
     # replyto = '***'
     # 收件人地址或是地址列表，支持多个收件人，最多30个
     # rcptto = ['***', '***']
-    rcptto = ['wuxp@imsa.org.cn','hsingpu@Foxmail.com']
+    rcptto = ['wuxp@imsa.org.cn','liulk@imsa.pub']
     # 构建alternative结构
     msg = MIMEMultipart('alternative')
     msg['Subject'] = Header('邮件Tips/报警测试').encode('utf-8')
