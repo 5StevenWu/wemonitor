@@ -26,6 +26,7 @@ urlpatterns = [
     # url(r'^sendall/', views.sendWechat.as_view()),
     url(r'^sendwechat/', views.sendWechat.as_view()),
     url(r'^api/v3/wxmonitor/', views.wxmonitor.as_view()),
+    url(r'^api/v3/voiceover/', views.voiceover.as_view()),
     # url(r'^sendmail/', views.sendWechat.as_view()),
     # url(r'^sendsms/', views.sendWechat.as_view()),
 ]
