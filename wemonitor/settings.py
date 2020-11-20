@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'sendwechat.apps.SendwechatConfig',
     'sendmail.apps.SendmailConfig',
     'sendsms.apps.SendsmsConfig',
-    'rest_framework'
+    'rest_framework',
+ #   'channels'
 ]
 
 MIDDLEWARE = [
@@ -121,8 +122,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-#import dwebsocket
+import dwebsocket
 # 为所有的URL提供websocket，如果只是单独的视图需要可以不选
-#MIDDLEWARE_CLASSES=['dwebsocket.middleware.WebSocketMiddleware']
+MIDDLEWARE_CLASSES=['dwebsocket.middleware.WebSocketMiddleware']
 
 WEBSOCKET_ACCEPT_ALL=True  # 可以允许每一个单独的视图实用websockets
+
+
+#ASGI_APPLICATION = 'webapp.routing.application'
