@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+#import dwebsocket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -120,3 +120,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+#import dwebsocket
+# 为所有的URL提供websocket，如果只是单独的视图需要可以不选
+#MIDDLEWARE_CLASSES=['dwebsocket.middleware.WebSocketMiddleware']
+
+WEBSOCKET_ACCEPT_ALL=True  # 可以允许每一个单独的视图实用websockets

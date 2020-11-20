@@ -40,7 +40,7 @@ class wxmonitor(APIView):
 class voiceover(APIView):
 
     def get(self, request):
-        return render(request, 'voiceover.html')
+        return render(request, 'voiceoverwbs.html')
 
     def post(self, request, *args, **kwargs):
         title = request.POST.get('title')
@@ -52,12 +52,23 @@ class voiceover(APIView):
             return Response(res)
         return HttpResponse('测试失败')
 
+#@accept_websocket
+#def websocket_vv(request):
+    # if request.is_websocket():
+    #     while True:
+    #         time.sleep(1)
+    #         dit={
+    #             "time":time.strftime('%Y %m %d %H%M%S', time.localtime(time.time()))
+    #         }
+    #         request.websocket.send(json.dumps(dit))
+from dwebsocket.decorators import accept_websocket,require_websocket
+
 @accept_websocket
-def websocket_vv(request):
+def test_websocket(request):
     if request.is_websocket():
-        while True:
-            time.sleep(1)
-            dit={
-                "time":time.strftime('%Y %m %d %H%M%S', time.localtime(time.time()))
+        while 1:
+            time.sleep(1) ## 向前端发送时间
+            dit = {
+                'time':time.strftime('%Y.%m.%d %H:%M:%S',time.localtime(time.time()))
             }
             request.websocket.send(json.dumps(dit))
