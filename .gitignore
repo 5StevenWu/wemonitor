@@ -125,3 +125,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+scriptTest/libs/chromedriver.exe
